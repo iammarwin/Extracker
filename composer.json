@@ -1,0 +1,6 @@
+{
+    "name": "iammarwin/extracker",
+    "description": "A PHP Application for tracking expenses",
+    "type": "project",
+    "require": {}
+}
