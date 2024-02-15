@@ -8,6 +8,9 @@ use Framework\App;
 
 $app = new App();
 
-$app->add('/');
+$app->GET('/');
+$app->GET('about/team');
+$app->GET('/about/team');
+$app->GET('/about/team//');
 dd($app);
 return $app;
