@@ -8,9 +8,6 @@ use Framework\App;
 
 $app = new App();
 
-$app->GET('/');
-$app->GET('about/team');
-$app->GET('/about/team');
-$app->GET('/about/team//');
+$app->get('/', ['APP\Controllers\HomeController', 'home']);
 dd($app);
 return $app;
