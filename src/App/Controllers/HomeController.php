@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Conrollers;
+namespace App\Controllers;
 
-class HomeConroller
+class HomeController
 {
     public function home()
     {

@@ -5,10 +5,10 @@ declare(strict_types=1);
 require __DIR__ . "/../../vendor/autoload.php";
 
 use Framework\App;
-use App\Conrollers\HomeConroller;
+use App\Controllers\HomeController;
 
 $app = new App();
 
-$app->get('/', [HomeConroller::class, 'home']);
+$app->get('/', [HomeController::class, 'home']);
 
 return $app;

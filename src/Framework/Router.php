@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Framework;
 
+
 class Router
 {
     private array $routes = [];
@@ -34,11 +35,16 @@ class Router
 
         foreach ($this->routes as $route) {
             if (
-                !preg_match("#^{$route['path']}$#", $path) || $route['method'] !== $method) {
+                !preg_match("#^{$route['path']}$#", $path) || $route['method'] !== $method
+            ) {
                 continue;
             }
 
-            echo "route found";
+            [$class, $function] = $route['controller'];
+
+            $conrollerInstance = new $class;
+
+            $conrollerInstance->{$function}();
         }
     }
 }
