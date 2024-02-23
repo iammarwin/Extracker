@@ -28,7 +28,7 @@ class Router
         return $path;
     }
 
-    public function dispatsh(string $path, string $method)
+    public function dispatsh(string $path, string $method, Container $container)
     {
         $path = $this->normalizePath($path);
         $method = strtoupper($method);
@@ -42,7 +42,7 @@ class Router
 
             [$class, $function] = $route['controller'];
 
-            $conrollerInstance = new $class;
+            $conrollerInstance = $container ? $container->resolve($class) : new $class;
 
             $conrollerInstance->{$function}();
         }
