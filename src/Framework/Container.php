@@ -10,6 +10,7 @@ class Container
 
     public function addDefintions(array $newDefinitions)
     {
+        $this->defintions = [...$this->defintions, ...$newDefinitions];
         dd($newDefinitions);
     }
 }
