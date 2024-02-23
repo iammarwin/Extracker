@@ -6,4 +6,10 @@ namespace Framework;
 
 class Container
 {
+    private array $defintions = [];
+
+    public function addDefintions(array $newDefinitions)
+    {
+        dd($newDefinitions);
+    }
 }
