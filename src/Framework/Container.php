@@ -54,7 +54,7 @@ class Container
 
             $dependencies[] = $this->get($type->getName());
         }
-        dd($dependencies);
+        return $reflectionClass->newInstanceArgs($dependencies);
     }
 
     public function get(string $id)
@@ -62,7 +62,7 @@ class Container
         if (!array_key_exists($id, $this->defintions)) {
             throw new ContainerException("Class {$id} does not exist in container.");
         }
-        
+
         $factory = $this->defintions[$id];
         $dependency = $factory();
 
