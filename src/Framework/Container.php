@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Framework;
 
-use ReflectionClass;
-use Framework\Excepetions;
+use ReflectionClass, ReflectionNamedType;
 use Framework\Excepetions\ContainerException;
+
+use function PHPSTORM_META\type;
 
 class Container
 {
@@ -26,14 +27,33 @@ class Container
         }
 
         $constructor = $reflectionClass->getConstructor();
+
         if (!$constructor) {
             return new $className;
         }
 
         $params = $constructor->getParameters();
-        if(count($params) === 0) {
+
+        if (count($params) === 0) {
             return new $className;
         }
-        dd($params);
+
+        $dependencies = [];
+
+        foreach ($params as $param) {
+            $name = $param->getName();
+            $type = $param->getType();
+
+            if (!$type) {
+                throw new ContainerException("Failed to resolve class {$className} because param {$name} is missing a type hint.");
+            }
+
+            if (!$type instanceof ReflectionNamedType || $type->isBuiltin()) {
+                throw new ContainerException("Failde to resolve class {$className} because invalid param name.");
+            }
+            
+        }
+        dd($dependencies);
     }
+
 }
