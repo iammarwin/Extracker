@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Extracker: Track and organize your expenses in a better way.</title>
+    <title><?php echo $title ?></title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
     <!-- Start Header -->
     <header class="bg-indigo-900">
         <nav class="mx-auto flex container items-center justify-between py-4" aria-label="Global">
-            <a href="/" class="-m-1.5 p-1.5 text-white text-2xl font-bold">Extracker</a>
+            <a href="/" class="-m-1.5 p-1.5 text-white text-2xl font-bold">Extacker</a>
             <!-- Navigation Links -->
             <div class="flex lg:gap-x-10">
                 <a href="/about" class="text-gray-300 hover:text-white transition">About</a>
