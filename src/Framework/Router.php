@@ -29,7 +29,7 @@ class Router
         return $path;
     }
 
-    public function dispatsh(string $path, string $method, Container $container)
+    public function dispatsh(string $path, string $method, Container $container= null)
     {
         $path = $this->normalizePath($path);
         $method = strtoupper($method);
@@ -41,11 +41,11 @@ class Router
                 continue;
             }
 
-            [$class, $function] = $route['controller'];
+            [$class, $func] = $route['controller'];
 
             $conrollerInstance = $container ? $container->resolve($class) : new $class;
 
-            $action = fn () => $conrollerInstance->{$function}();
+            $action = fn () => $conrollerInstance->$func();
             foreach ($this->middlewares as $middleware) {
                 $middlewareInstance = $container ? $container->resolve($middleware) : new $middleware;
                 $action = fn () => $middlewareInstance->process($action);
