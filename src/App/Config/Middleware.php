@@ -6,7 +6,6 @@ namespace App\Config;
 
 use Framework\App;
 use App\Middleware\{TemplateDataMiddleware, ValidationExceptionMiddleware, SessionMiddleware, FlashMiddleware};
-use SessionHandler;
 
 function registerMiddleware(App $app)
 {

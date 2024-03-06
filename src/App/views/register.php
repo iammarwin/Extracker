@@ -7,7 +7,7 @@
             <span class="text-gray-700">Email address</span>
             <input name="email" type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="john@example.com" />
             <?php if (array_key_exists('email', $errors)) : ?>
-                <span class="pt-2 text-red-500">
+                <span class="block pt-2 text-red-500">
                     <?php echo esc($errors['email'][0]) ?>
                 </span>
             <?php endif; ?>
@@ -15,9 +15,9 @@
         <!-- Age -->
         <label class="block">
             <span class="text-gray-700">Age</span>
-            <input name="age" min="10" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="" />
+            <input name="age" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="" />
             <?php if (array_key_exists('age', $errors)) : ?>
-                <span class="pt-2 text-red-500">
+                <span class="block pt-2 text-red-500">
                     <?php echo esc($errors['age'][0]) ?>
                 </span>
             <?php endif; ?>
@@ -32,7 +32,7 @@
                 <option value="Invalid">Invalid Country</option>
             </select>
             <?php if (array_key_exists('country', $errors)) : ?>
-                <span class="pt-2 text-red-500">
+                <span class="block pt-2 text-red-500">
                     <?php echo esc($errors['country'][0]) ?>
                 </span>
             <?php endif; ?>
@@ -42,7 +42,7 @@
             <span class="text-gray-700">Social Media URL</span>
             <input name="socialMediaURL" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="" />
             <?php if (array_key_exists('socialMediaURL', $errors)) : ?>
-                <span class="pt-2 text-red-500">
+                <span class="block pt-2 text-red-500">
                     <?php echo esc($errors['socialMediaURL'][0]) ?>
                 </span>
             <?php endif; ?>
@@ -52,7 +52,7 @@
             <span class="text-gray-700">Password</span>
             <input name="password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="" />
             <?php if (array_key_exists('password', $errors)) : ?>
-                <span class="pt-2 text-red-500">
+                <span class="block pt-2 text-red-500">
                     <?php echo esc($errors['password'][0]) ?>
                 </span>
             <?php endif; ?>
@@ -62,7 +62,7 @@
             <span class="text-gray-700">Confirm Password</span>
             <input name="confirmPassword" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="" />
             <?php if (array_key_exists('confirmPassword', $errors)) : ?>
-                <span class="pt-2 text-red-500">
+                <span class="block pt-2 text-red-500">
                     <?php echo esc($errors['confirmPassword'][0]) ?>
                 </span>
             <?php endif; ?>
@@ -76,7 +76,7 @@
                         <span class="ml-2">I accept the terms of service.</span>
                     </label>
                     <?php if (array_key_exists('tos', $errors)) : ?>
-                        <span class="pt-4 block text-red-500">
+                        <span class="block pt-2 text-red-500">
                             <?php echo esc($errors['tos'][0]) ?>
                         </span>
                     <?php endif; ?>
