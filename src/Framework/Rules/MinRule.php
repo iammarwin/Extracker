@@ -16,7 +16,8 @@ class MinRule implements RuleInterface
             throw new InvalidArgumentException("Minimum length not speciefied");
         }
 
-        return $data[$field] >= $params[0];
+        $value = (int) $params[0];
+        return $data[$field] >= $value;
     }
 
     public function getMessage(array $data, string $field, array $params): string
