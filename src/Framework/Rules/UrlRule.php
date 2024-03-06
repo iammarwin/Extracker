@@ -6,15 +6,15 @@ namespace Framework\Rules;
 
 use Framework\Contracts\RuleInterface;
 
-class EmailRule implements RuleInterface
+class UrlRule implements RuleInterface
 {
     public function validate(array $data, string $field, array $params): bool
     {
-        return (bool) filter_var($data[$field], FILTER_VALIDATE_EMAIL);
+        return (bool) filter_var($data[$field], FILTER_VALIDATE_URL);
     }
 
     public function getMessage(array $data, string $field, array $params): string
     {
-        return "Oops! The email you entered is invalid.";
+        return "Oops! The URL you entered is invalid.";
     }
 }
