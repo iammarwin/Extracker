@@ -17,13 +17,13 @@ class ValidationExceptionMiddleware implements MiddlewareInterface
             $oldFormData = $_POST;
 
             $excludedFields = ['password', 'confirmPassword'];
-            $formattedFormData = array_diff_key(
+            $filteredFormData = array_diff_key(
                 $oldFormData,
                 array_flip($excludedFields)
             );
 
             $_SESSION['errors'] = $e->errors;
-            $_SESSION['oldFormData'] = $formattedFormData;
+            $_SESSION['oldFormData'] = $filteredFormData;
 
             $referer = $_SERVER['HTTP_REFERER'];
             redirectTo($referer);
