@@ -29,7 +29,7 @@
                 <option value="USA">USA</option>
                 <option value="Canada" <?php echo ($oldFormData['country'] ?? '') == "Canada" ? "selected" : ""; ?>>Canada</option>
                 <option value="Mexico" <?php echo ($oldFormData['country'] ?? '') == "Canada" ? "selected" : ""; ?>>Mexico</option>
-                <option value="Invalid">Invalid Country</option>
+                <!-- <option value="Invalid">Invalid Country</option> -->
             </select>
             <?php if (array_key_exists('country', $errors)) : ?>
                 <span class="block pt-2 text-red-500">
@@ -87,6 +87,7 @@
             Submit
         </button>
     </form>
+    <?php var_dump($oldFormData); ?>
 </section>
 
 <?php include $this->resolve("partials/_footer.php") ?>
