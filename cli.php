@@ -10,4 +10,13 @@ $db = new Database('mysql', [
     'dbname' => 'extracker_db'
 ], 'root', '');
 
-echo "Connected to database.";
+$search = "Sweaters";
+$query = "SELECT * FROM products WHERE name = :name";
+
+$stmt = $db->connection->prepare($query);
+
+$stmt->bindValue('name', $search, PDO::PARAM_STR);
+
+$stmt->execute();
+
+var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
