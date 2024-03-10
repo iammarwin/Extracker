@@ -22,7 +22,7 @@ class Database
         try {
             $this->connection = new PDO($dsn, $username, $password);
         } catch (PDOException $e) {
-            die("Unable to connect to database.");
+            die("Unable to connect to database. {$e->getMessage()}");
         }
     }
 }

@@ -19,6 +19,8 @@ $sqlFile = file_get_contents("./database.sql");
 
 $db->connection->query($sqlFile);
 
+// $stmt = $db->connection->query("SELECT * FROM users");
+// var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
 
 // try {
 //     $db->connection->beginTransaction();

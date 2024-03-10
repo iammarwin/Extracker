@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Framework;
 
 use ReflectionClass, ReflectionNamedType;
-use Framework\Excepetions\ContainerException;
-
-use function PHPSTORM_META\type;
+use Framework\Exceptions\ContainerException;
 
 class Container
 {
@@ -69,7 +67,7 @@ class Container
         }
 
         $factory = $this->defintions[$id];
-        $dependency = $factory();
+        $dependency = $factory($this);
 
         $this->resolved[$id] = $dependency;
 
