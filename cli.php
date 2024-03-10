@@ -1,14 +1,23 @@
 <?php
 
-include __DIR__ . "/src/Framework/Database.php";
+include __DIR__ . "/vendor/autoload.php";
 
 use Framework\Database;
+use Dotenv\Dotenv;
+use App\Config\Paths;
 
-$db = new Database('mysql', [
-    'host' => 'localhost',
-    'port' => '3306',
-    'dbname' => 'extracker_db'
-], 'root', '');
+$dotenv = Dotenv::createImmutable(Paths::ROOT);
+$dotenv->load();
+
+$db = new Database($_ENV['DB_DRIVER'], [
+    'host' => $_ENV['DB_HOST'],
+    'port' => $_ENV['DB_PORT'],
+    'dbname' => $_ENV['DB_NAME']
+], $_ENV['DB_USER'], $_ENV['DB_PASS']);
+
+$sqlFile = file_get_contents("./database.sql");
+
+$db->connection->query($sqlFile);
 
 
 // try {
@@ -33,8 +42,3 @@ $db = new Database('mysql', [
 //     }
 //     echo "Transaction Failed.";
 // }
-
-
-$sqlFile = file_get_contents("./database.sql");
-
-$db->connection->query($sqlFile);
