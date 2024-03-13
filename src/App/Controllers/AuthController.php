@@ -41,4 +41,10 @@ class AuthController
         $this->userServicer->login($_POST);
         redirectTo('/');
     }
+
+    public function logout()
+    {
+        $this->userServicer->logout();
+        redirectTo('/login');
+    }
 }

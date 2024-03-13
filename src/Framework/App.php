@@ -28,18 +28,25 @@ class App
         $this->router->dispatsh($path, $method, $this->container);
     }
 
-    public function get(string $path, array $conroller)
+    public function get(string $path, array $conroller): App
     {
         $this->router->add('GET', $path, $conroller);
+        return $this;
     }
 
-    public function post(string $path, array $conroller)
+    public function post(string $path, array $conroller): App
     {
         $this->router->add('POST', $path, $conroller);
+        return $this;
     }
 
     public function addMiddleware(string $middleware)
     {
         $this->router->addMiddleware($middleware);
+    }
+
+    public function add(string $middleware)
+    {
+        $this->router->addRouteMiddleware($middleware);
     }
 }
