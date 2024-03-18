@@ -40,6 +40,12 @@ class App
         return $this;
     }
 
+    public function delete(string $path, array $conroller): App
+    {
+        $this->router->add('DELETE', $path, $conroller);
+        return $this;
+    }
+
     public function addMiddleware(string $middleware)
     {
         $this->router->addMiddleware($middleware);
