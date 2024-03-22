@@ -18,29 +18,3 @@ $db = new Database($_ENV['DB_DRIVER'], [
 $sqlFile = file_get_contents("./database.sql");
 
 $db->connection->query($sqlFile);
-
-// $stmt = $db->connection->query("SELECT * FROM users");
-// var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
-
-// try {
-//     $db->connection->beginTransaction();
-//     $db->connection->query("INSERT INTO products VALUES(99, 'Shoes')");
-
-//     $search = "Sweaters";
-//     $query = "SELECT * FROM products WHERE name = :name";
-
-//     $stmt = $db->connection->prepare($query);
-
-//     $stmt->bindValue('name', 'Shoes', PDO::PARAM_STR);
-
-//     $stmt->execute();
-
-//     var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
-
-//     $db->connection->commit();
-// } catch (Exception $e) {
-//     if ($db->connection->inTransaction()) {
-//         $db->connection->rollBack();
-//     }
-//     echo "Transaction Failed.";
-// }
