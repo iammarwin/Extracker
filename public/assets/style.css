@@ -708,6 +708,10 @@ select {
     height: 1.5rem;
 }
 
+.h-screen {
+    height: 72vh;
+}
+
 .w-0 {
     width: 0px;
 }
@@ -742,6 +746,14 @@ select {
 
 .flex-1 {
     flex: 1 1 0%;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.self-center {
+    align-self: center;
 }
 
 .table-auto {
